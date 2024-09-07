@@ -1,11 +1,14 @@
 package net.kai_nulled.potioncore.effects;
 
+import net.kai_nulled.potioncore.PotionCore;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+
+import java.util.Random;
 
 public class ExtendEffect extends MobEffect {
     public ExtendEffect(MobEffectCategory category, int color) {
@@ -15,10 +18,9 @@ public class ExtendEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         if(!pLivingEntity.getActiveEffects().isEmpty()) {
-            int rnd = Mth.nextInt(RandomSource.create(),0,pLivingEntity.getActiveEffects().size()-1);
+            int rnd = new Random().nextInt(pLivingEntity.getActiveEffects().size());
             MobEffectInstance mbi=(MobEffectInstance) pLivingEntity.getActiveEffects().toArray()[rnd];
             mbi.update(new MobEffectInstance(mbi.getEffect(),mbi.getDuration()*2,mbi.getAmplifier()));
-            mbi.applyEffect(pLivingEntity);
             pLivingEntity.removeEffect(ModEffects.EXTEND.get());
         }
     }

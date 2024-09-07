@@ -1,5 +1,7 @@
 package net.kai_nulled.potioncore.effects;
 
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
@@ -12,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class DisorganizationEffect extends MobEffect {
@@ -41,19 +44,17 @@ public class DisorganizationEffect extends MobEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         if(pLivingEntity instanceof Player player) {
             if(!player.getInventory().isEmpty()) {
-                int rnd = Mth.nextInt(RandomSource.create(), 0, 35);
-                int rnd1 = Mth.nextInt(RandomSource.create(), 0, 35);
+                int rnd = new Random().nextInt(36);
+                int rnd1 = new Random().nextInt(36);
                 while (rnd == rnd1) {
-                    rnd = Mth.nextInt(RandomSource.create(), 0, 35);
-                    rnd1 = Mth.nextInt(RandomSource.create(), 0, 35);
+                    rnd = new Random().nextInt(36);
+                    rnd1 = new Random().nextInt(36);
                 }
                 Inventory inventory = player.getInventory();
                 ItemStack it1 = inventory.getItem(rnd);
                 ItemStack it2 = inventory.getItem(rnd1);
-                inventory.setItem(rnd1,it1);
-                inventory.removeItem(rnd1,64);
                 inventory.setItem(rnd,it2);
-                inventory.setChanged();
+                inventory.setItem(rnd1,it1);
             }
         }
     }

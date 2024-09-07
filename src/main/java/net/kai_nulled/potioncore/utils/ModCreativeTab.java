@@ -27,6 +27,18 @@ public class ModCreativeTab {
                             itemStack.setTag(new CompoundTag());
                             PotionUtils.setPotion(itemStack, potion.get());
                             pOutput.accept(itemStack);
+                            ItemStack itemStack1 = new ItemStack(Items.SPLASH_POTION);
+                            itemStack1.setTag(new CompoundTag());
+                            PotionUtils.setPotion(itemStack1, potion.get());
+                            pOutput.accept(itemStack1);
+                            ItemStack itemStack2 = new ItemStack(Items.LINGERING_POTION);
+                            itemStack2.setTag(new CompoundTag());
+                            PotionUtils.setPotion(itemStack2, potion.get());
+                            pOutput.accept(itemStack2);
+                            ItemStack itemStack3 = new ItemStack(Items.TIPPED_ARROW);
+                            itemStack3.setTag(new CompoundTag());
+                            PotionUtils.setPotion(itemStack3, potion.get());
+                            pOutput.accept(itemStack3);
                         }
                     })
                     .build());

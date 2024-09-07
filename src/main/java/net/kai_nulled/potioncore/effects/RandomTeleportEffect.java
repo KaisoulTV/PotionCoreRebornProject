@@ -18,8 +18,8 @@ public class RandomTeleportEffect extends MobEffect {
 
     @Override
     public void applyInstantenousEffect(@Nullable Entity pSource, @Nullable Entity pIndirectSource, LivingEntity pLivingEntity, int pAmplifier, double pHealth) {
-        double rnx = pLivingEntity.getRandomX(10*pAmplifier);
-        double rnz = pLivingEntity.getRandomZ(10*pAmplifier);
+        double rnx = pLivingEntity.getRandomX(10*pAmplifier)+1;
+        double rnz = pLivingEntity.getRandomZ(10*pAmplifier)+1;
         double rny = pLivingEntity.getRandomY();
         pLivingEntity.teleportTo(rnx,rny,rnz);
     }

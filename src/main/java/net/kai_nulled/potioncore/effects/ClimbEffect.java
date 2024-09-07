@@ -15,10 +15,10 @@ public class ClimbEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(@NotNull LivingEntity entity, int pAmplifier) {
-        Vec3 eye = entity.getEyePosition(1f).add(0,-1,0);
-        if (entity.level().clip(new ClipContext(eye, eye.add(entity.getViewVector(1f).scale(0.5)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, entity)).getType() == HitResult.Type.BLOCK) {
+        Vec3 eyeHeight = entity.getEyePosition();
+        if (entity.level().clip(new ClipContext(eyeHeight, eyeHeight.add(entity.getViewVector(1f).scale(0.5)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, entity)).getType() == HitResult.Type.BLOCK) {
             if (entity.getDeltaMovement().horizontalDistanceSqr() > 1.0E-6D) {
-                entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x()), 0.25*pAmplifier, (entity.getDeltaMovement().z())));
+                entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x()), 0.25, (entity.getDeltaMovement().z())));
             }
         }
     }

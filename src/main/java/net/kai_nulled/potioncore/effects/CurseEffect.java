@@ -22,7 +22,7 @@ public class CurseEffect extends MobEffect {
     @Override
     public void applyInstantenousEffect(@Nullable Entity pSource, @Nullable Entity pIndirectSource, LivingEntity pLivingEntity, int pAmplifier, double pHealth) {
         int rnd = Mth.nextInt(RandomSource.create(),0, ModGlobalVars.bpotionList.size()-1);
-        pLivingEntity.addEffect(new MobEffectInstance(ModGlobalVars.bpotionList.get(rnd),360*pAmplifier,pAmplifier));
+        pLivingEntity.addEffect(new MobEffectInstance(ModGlobalVars.bpotionList.get(rnd),3600*(pAmplifier+1),pAmplifier));
     }
 
     @Override

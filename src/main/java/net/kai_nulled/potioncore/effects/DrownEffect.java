@@ -14,10 +14,10 @@ public class DrownEffect extends MobEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         if(pLivingEntity.isUnderWater()) {
             if (pLivingEntity.getAirSupply() < pLivingEntity.getMaxAirSupply()) {
-                pLivingEntity.setAirSupply(Mth.clamp(pLivingEntity.getAirSupply() + 2 * pAmplifier, 0, pLivingEntity.getMaxAirSupply() - pLivingEntity.getAirSupply()));
+                pLivingEntity.setAirSupply(Mth.clamp(pLivingEntity.getAirSupply() + 2 * (pAmplifier+1), 0, pLivingEntity.getMaxAirSupply() - pLivingEntity.getAirSupply()));
             }
         } else {
-            pLivingEntity.setAirSupply(Mth.clamp(pLivingEntity.getAirSupply() - 5 * pAmplifier, Integer.MIN_VALUE, 0));
+            pLivingEntity.setAirSupply(pLivingEntity.getAirSupply() - 5*(pAmplifier+1));
         }
     }
 

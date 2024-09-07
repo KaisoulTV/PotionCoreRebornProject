@@ -145,6 +145,13 @@ public class ModPotions {
     public static final RegistryObject<Potion> LONG_CLIMB = POTIONS.register("long_climb",
             () -> new Potion(new MobEffectInstance(ModEffects.CLIMB.get(),9800,0)));
 
+    public static final RegistryObject<Potion> WEIGHT = POTIONS.register("weight",
+            () -> new Potion(new MobEffectInstance(ModEffects.WEIGHT.get(),3600,0)));
+    public static final RegistryObject<Potion> LONG_WEIGHT = POTIONS.register("long_weight",
+            () -> new Potion(new MobEffectInstance(ModEffects.WEIGHT.get(),9800,0)));
+    public static final RegistryObject<Potion> STRONG_WEIGHT = POTIONS.register("strong_weight",
+            () -> new Potion(new MobEffectInstance(ModEffects.WEIGHT.get(),9800,1)));
+
     public static final RegistryObject<Potion> EXTEND = POTIONS.register("extend",
             () -> new Potion(new MobEffectInstance(ModEffects.EXTEND.get(),3600,0)));
     public static final RegistryObject<Potion> LONG_EXTEND = POTIONS.register("long_extend",
@@ -271,9 +278,9 @@ public class ModPotions {
     public static final RegistryObject<Potion> WITHER = POTIONS.register("wither",
             () -> new Potion(new MobEffectInstance(MobEffects.WITHER,3600,0)));
     public static final RegistryObject<Potion> STRONG_WITHER = POTIONS.register("strong_wither",
-            () -> new Potion(new MobEffectInstance(MobEffects.DIG_SPEED,4800,1)));
+            () -> new Potion(new MobEffectInstance(MobEffects.WITHER,4800,1)));
     public static final RegistryObject<Potion> LONG_WITHER = POTIONS.register("long_wither",
-            () -> new Potion(new MobEffectInstance(MobEffects.DIG_SPEED,9800,0)));
+            () -> new Potion(new MobEffectInstance(MobEffects.WITHER,9800,0)));
 
     public static void register(IEventBus eventBus) {
         POTIONS.register(eventBus);

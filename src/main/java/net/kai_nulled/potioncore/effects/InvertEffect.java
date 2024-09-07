@@ -21,27 +21,30 @@ public class InvertEffect extends MobEffect {
         return true;
     }
 
+
     private static void invertPotion(LivingEntity entity, MobEffect mb1, MobEffect mb2) {
         if(entity==null) return;
-        if(entity.hasEffect(mb1)&&entity.hasEffect(mb2)) {
-            int dur1= Objects.requireNonNull(entity.getEffect(mb1)).getDuration();
-            int dur2= Objects.requireNonNull(entity.getEffect(mb2)).getDuration();
-            int amp1= Objects.requireNonNull(entity.getEffect(mb1)).getAmplifier();
-            int amp2= Objects.requireNonNull(entity.getEffect(mb2)).getAmplifier();
+        MobEffectInstance eff = entity.getEffect(mb1);
+        MobEffectInstance eff1 = entity.getEffect(mb2);
+        if(eff!=null&&eff1!=null) {
+            int dur1= eff.getDuration();
+            int dur2= eff1.getDuration();
+            int amp1= eff.getAmplifier();
+            int amp2= eff1.getAmplifier();
             entity.removeEffect(mb1); entity.removeEffect(mb2);
-            entity.addEffect(new MobEffectInstance(mb1,dur2,amp2));
-            entity.addEffect(new MobEffectInstance(mb2,dur1,amp1));
+            if(!entity.level().isClientSide()) entity.addEffect(new MobEffectInstance(mb1,dur2,amp2));
+            if(!entity.level().isClientSide()) entity.addEffect(new MobEffectInstance(mb2,dur1,amp1));
         } else {
-            if(entity.hasEffect(mb1)) {
-                int dur1= Objects.requireNonNull(entity.getEffect(mb1)).getDuration();
-                int amp1= Objects.requireNonNull(entity.getEffect(mb1)).getAmplifier();
+            if(eff!=null) {
+                int dur1= eff.getDuration();
+                int amp1= eff.getAmplifier();
                 entity.removeEffect(mb1);
-                entity.addEffect(new MobEffectInstance(mb2,dur1,amp1));
-            } else {
-                int dur2= Objects.requireNonNull(entity.getEffect(mb2)).getDuration();
-                int amp2= Objects.requireNonNull(entity.getEffect(mb2)).getAmplifier();
+                if(!entity.level().isClientSide()) entity.addEffect(new MobEffectInstance(mb2,dur1,amp1));
+            } else if(eff1 != null) {
+                int dur2= eff1.getDuration();
+                int amp2= eff1.getAmplifier();
                 entity.removeEffect(mb2);
-                entity.addEffect(new MobEffectInstance(mb1,dur2,amp2));
+                if(!entity.level().isClientSide()) entity.addEffect(new MobEffectInstance(mb1,dur2,amp2));
             }
         }
     }

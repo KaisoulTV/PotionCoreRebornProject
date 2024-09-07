@@ -9,8 +9,15 @@ public class SpinEffect extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        pLivingEntity.setYHeadRot(pLivingEntity.getYHeadRot()+2*(pAmplifier+1));
+    public void applyEffectTick(LivingEntity entity, int pAmplifier) {
+        entity.setYRot(entity.getYRot() + (pAmplifier + 1) * 3);
+        entity.setXRot(entity.getXRot());
+        entity.setYBodyRot(entity.getYRot());
+        entity.setYHeadRot(entity.getYRot());
+        entity.yRotO = entity.getYRot();
+        entity.xRotO = entity.getXRot();
+        entity.yBodyRotO = entity.getYRot();
+        entity.yHeadRotO = entity.getYRot();
     }
 
     @Override

@@ -21,7 +21,7 @@ public class BurstEffect extends MobEffect {
     public void applyInstantenousEffect(@Nullable Entity pSource, @Nullable Entity pIndirectSource, LivingEntity pLivingEntity, int pAmplifier, double pHealth) {
         boolean kkk = pLivingEntity.isInvulnerable();
         pLivingEntity.setInvulnerable(true);
-        pLivingEntity.level().explode(pLivingEntity,pLivingEntity.getX(),pLivingEntity.getY(),pLivingEntity.getZ(),pAmplifier+2,true, Level.ExplosionInteraction.NONE);
+        pLivingEntity.level().explode(pLivingEntity,pLivingEntity.getX(),pLivingEntity.getY(),pLivingEntity.getZ(),pAmplifier+3,true, Level.ExplosionInteraction.NONE);
         pLivingEntity.setInvulnerable(kkk);
     }
 

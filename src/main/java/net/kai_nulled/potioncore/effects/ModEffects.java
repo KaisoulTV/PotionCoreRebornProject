@@ -94,7 +94,7 @@ public class ModEffects {
             () -> new DrownEffect(MobEffectCategory.NEUTRAL,65535));
     public static final RegistryObject<MobEffect> WEIGHT = MOB_EFFECTS.register("weight",
             () -> new WeightEffect(MobEffectCategory.HARMFUL,5592405).addAttributeModifier(
-                    ModAttributes.JUMP_HEIGHT.get(), "C8ACF9F4-15BF-4051-8F65-0F1EC586CDF7",-0.2, Operation.ADDITION));
+                    ModAttributes.JUMP_HEIGHT.get(), "C8ACF9F4-15BF-4051-8F65-0F1EC586CDF7",-0.1, Operation.ADDITION));
     public static final RegistryObject<MobEffect> DISORGANIZATION = MOB_EFFECTS.register("disorganization",
             () -> new DisorganizationEffect(MobEffectCategory.HARMFUL,10027263));
     public static final RegistryObject<MobEffect> PERPLEXITY = MOB_EFFECTS.register("perplexity",

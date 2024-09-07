@@ -5,6 +5,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.goal.BreedGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
@@ -23,7 +24,7 @@ public class LoveEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         if(pLivingEntity instanceof Animal animal) {
-            if(animal.canBreed()) {
+            if(animal.canFallInLove()) {
                 animal.setInLove(pLivingEntity.level().getNearestPlayer(pLivingEntity, 10));
                 animal.setInLoveTime(1000);
             }

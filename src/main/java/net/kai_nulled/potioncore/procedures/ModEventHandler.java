@@ -13,6 +13,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.MovementInputUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -74,7 +75,7 @@ public class ModEventHandler {
     @SubscribeEvent
     public static void eJump(LivingEvent.LivingJumpEvent event) {
         LivingEntity e = event.getEntity();
-        e.addDeltaMovement(new Vec3(0,e.getAttributeValue(ModAttributes.JUMP_HEIGHT.get()),0));
+        e.addDeltaMovement(new Vec3(0,e.getAttributeValue(ModAttributes.JUMP_HEIGHT.get())/2,0));
     }
 
     @SubscribeEvent
