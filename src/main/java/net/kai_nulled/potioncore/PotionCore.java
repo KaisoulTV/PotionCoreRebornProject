@@ -5,11 +5,17 @@ import net.kai_nulled.potioncore.effects.ModEffects;
 import net.kai_nulled.potioncore.potions.ModPotions;
 import net.kai_nulled.potioncore.utils.BetterBrewingRecipes;
 import net.kai_nulled.potioncore.utils.ModCreativeTab;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.LadderBlock;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipe;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -50,7 +56,12 @@ public class PotionCore
     }
 
     private void makeRecipe(Potion a, Item b, Potion c) {
-        BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipes(a,b,c));
+        ItemStack ia = new ItemStack(Items.POTION); ia.setTag(new CompoundTag());
+        ItemStack ic = new ItemStack(Items.POTION); ic.setTag(new CompoundTag());
+        BrewingRecipeRegistry.addRecipe(
+                Ingredient.of(PotionUtils.setPotion(ia,a)),
+                Ingredient.of(b),
+                PotionUtils.setPotion(ic,c));
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -65,10 +76,10 @@ public class PotionCore
             makeRecipe(ModPotions.FLIGHT.get(),Items.REDSTONE,ModPotions.LONG_FLIGHT.get());
 
             makeRecipe(ModPotions.NAUSEA.get(),Items.RED_MUSHROOM,ModPotions.PERPLEXITY.get());
-            makeRecipe(ModPotions.PURITY.get(),Items.REDSTONE,ModPotions.LONG_PERPLEXITY.get());
+            makeRecipe(ModPotions.PERPLEXITY.get(),Items.REDSTONE,ModPotions.LONG_PERPLEXITY.get());
 
-            makeRecipe(Potions.THICK,Items.CHEST,ModPotions.DISORGANIZATION.get());
-            makeRecipe(ModPotions.DISORGANIZATION.get(),Items.REDSTONE,ModPotions.LONG_DISORGANIZATION.get());
+            //makeRecipe(Potions.THICK,Items.CHEST,ModPotions.DISORGANIZATION.get());
+            //makeRecipe(ModPotions.DISORGANIZATION.get(),Items.REDSTONE,ModPotions.LONG_DISORGANIZATION.get());
 
             makeRecipe(Potions.AWKWARD,Items.GOLDEN_PICKAXE,ModPotions.HASTE.get());
             makeRecipe(ModPotions.HASTE.get(),Items.REDSTONE,ModPotions.LONG_HASTE.get());
