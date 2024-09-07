@@ -1,11 +1,8 @@
 package net.kai_nulled.potioncore;
 
 import com.mojang.logging.LogUtils;
-import mezz.jei.api.JeiPlugin;
-import net.kai_nulled.potioncore.attributes.ModAttributes;
 import net.kai_nulled.potioncore.effects.ModEffects;
 import net.kai_nulled.potioncore.potions.ModPotions;
-import net.kai_nulled.potioncore.procedures.ModEventHandler;
 import net.kai_nulled.potioncore.utils.BetterBrewingRecipes;
 import net.kai_nulled.potioncore.utils.ModCreativeTab;
 import net.minecraft.world.item.Item;
@@ -13,7 +10,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.brewing.BrewingRecipe;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;

@@ -1,8 +1,5 @@
 package net.kai_nulled.potioncore.effects;
 
-import net.kai_nulled.potioncore.PotionCore;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
