@@ -40,7 +40,7 @@ public class LoveEffect extends MobEffect {
                 p.lookAt(EntityAnchorArgument.Anchor.EYES, nearestP.position().add(0, 1, 0));
                 if (pAmplifier > 0) {
                     float yaw = p.getYHeadRot();
-                    float pSpeed = p.getSpeed();
+                    float pSpeed = p.getSpeed()*(-1);
                     var rx = Mth.cos(yaw) * pSpeed;
                     var ry = 0;
                     var rz = -Mth.sin(yaw) * pSpeed;

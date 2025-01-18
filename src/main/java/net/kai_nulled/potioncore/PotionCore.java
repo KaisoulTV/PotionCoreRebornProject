@@ -183,10 +183,6 @@ public class PotionCore
             makeRecipe(ModPotions.BROKEN_MAGIC_SHIELD.get(),Items.REDSTONE,ModPotions.LONG_BROKEN_MAGIC_SHIELD.get());
             makeRecipe(ModPotions.BROKEN_MAGIC_SHIELD.get(),Items.GLOWSTONE_DUST,ModPotions.STRONG_BROKEN_MAGIC_SHIELD.get());
 
-            makeRecipe(Potions.AWKWARD,Items.DIAMOND,ModPotions.DIAMOND_SKIN.get());
-            makeRecipe(ModPotions.DIAMOND_SKIN.get(),Items.REDSTONE,ModPotions.LONG_DIAMOND_SKIN.get());
-            makeRecipe(ModPotions.DIAMOND_SKIN.get(),Items.GLOWSTONE_DUST,ModPotions.STRONG_DIAMOND_SKIN.get());
-
             makeRecipe(Potions.THICK,Items.SALMON,ModPotions.DROWN.get());
             makeRecipe(ModPotions.DROWN.get(),Items.REDSTONE,ModPotions.LONG_DROWN.get());
             makeRecipe(ModPotions.DROWN.get(),Items.GLOWSTONE_DUST,ModPotions.STRONG_DROWN.get());
