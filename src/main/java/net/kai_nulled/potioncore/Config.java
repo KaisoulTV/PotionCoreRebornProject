@@ -455,7 +455,7 @@ public class Config
     //public static boolean logDirtBlock;
     public static int potionSicknessReq;
     //public static String magicNumberIntroduction;
-    public static boolean[] recipes = new boolean[108];
+    public static Boolean[] recipes = new Boolean[108];
 
     private static boolean validateItemName(final Object obj)
     {

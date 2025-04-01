@@ -8,9 +8,6 @@ public class LoveVigDisplayOverlayIngameProcedure {
 	public static boolean execute(Entity entity) {
 		if (entity == null)
 			return false;
-		if (entity instanceof LivingEntity _livEnt0 && _livEnt0.hasEffect(ModEffects.LOVE.get())) {
-			return true;
-		}
-		return false;
+		return entity instanceof LivingEntity _livEnt0 && _livEnt0.hasEffect(ModEffects.LOVE.get());
 	}
 }

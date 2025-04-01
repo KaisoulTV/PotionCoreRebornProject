@@ -57,7 +57,7 @@ public class ModEventHandler {
         if(damageSource.is(DamageTypes.MAGIC) || damageSource.is(DamageTypes.INDIRECT_MAGIC)) {
             event.setAmount((float) (magicDamageBonus-entity.getAttributeValue(ModAttributes.MAGIC_SHIELD.get())));
         }
-        if(entity.hasEffect(ModEffects.RECOIL.get())) {
+        if(entity.hasEffect(ModEffects.RECOIL.get()) && sourceEntity!=entity && sourceEntity!=null) {
             sourceEntity.hurt(damageSource, (float) (amount*(0.2*(entity.getEffect(ModEffects.RECOIL.get()).getAmplifier()+1))));
         }
     }

@@ -7,6 +7,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class DispelEffect extends MobEffect {
     public DispelEffect(MobEffectCategory category, int color) {
         super(category, color);
@@ -19,10 +22,10 @@ public class DispelEffect extends MobEffect {
 
     @Override
     public void applyInstantenousEffect(@Nullable Entity pSource, @Nullable Entity pIndirectSource, LivingEntity pLivingEntity, int pAmplifier, double pHealth) {
-        for(MobEffectInstance mb: pLivingEntity.getActiveEffects()) {
-            MobEffect mbe= mb.getEffect();
-            if(mbe.getCategory()==MobEffectCategory.BENEFICIAL) pLivingEntity.removeEffect(mbe);
-        }
+        Collection<MobEffectInstance> effects = pLivingEntity.getActiveEffects();
+        ArrayList<MobEffect> toRev = new ArrayList<MobEffect>();
+        for (MobEffectInstance eff : effects) if (eff.getEffect().isBeneficial()) toRev.add(eff.getEffect());
+        for(MobEffect i:toRev) pLivingEntity.removeEffect(i);
     }
 
     @Override
