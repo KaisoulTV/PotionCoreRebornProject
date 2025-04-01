@@ -9,7 +9,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 public class CureEffect extends MobEffect {
     public CureEffect(MobEffectCategory category, int color) {
